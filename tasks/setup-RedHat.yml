@@ -2,7 +2,7 @@
 - name: Download gpg key
   get_url:
     url: "{{ item.gpgkey }}"
-    dest: "{{ item.sslcacert }}"
+    dest: "{{ item.sslcacert | default(omit) }}"
   when: item.sslcacert is defined and item.gpgkey is defined
   with_items: "{{ yum_repository }}"
 
