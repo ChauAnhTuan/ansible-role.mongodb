@@ -11,7 +11,7 @@
     name: "{{ item.name }}"
     description: "{{ item.name }} YUM repo"
     baseurl: "{{ item.baseurl }}"
-    repo_gpgcheck: "{{ item.repo_gpgcheck | default(omit) }}"
+    repo_gpgcheck: "{{ item.repo_gpgcheck | default(omit, false) }}"
     enabled: "{{ item.enabled | default(omit) }}"
     gpgcheck: "{{ item.gpgcheck | default(omit) }}"
     gpgkey: "{{ item.gpgkey | default(omit) }}"
