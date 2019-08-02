@@ -8,5 +8,5 @@ yum_repository:
     enabled: true
     gpgcheck: true
     gpgkey: https://www.mongodb.org/static/pgp/server-4.0.asc
-    sslverify:
+    sslverify: false
     sslcacert:
