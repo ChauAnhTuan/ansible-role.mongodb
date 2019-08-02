@@ -4,7 +4,7 @@ dependencies: []
 galaxy_info:
   role_name: mongodb
   author: "ansible-roles"
-  description: Mysql client for Linux.
+  description: MongoDB for Linux.
   company: "ansible-roles"
   license: "license (BSD, MIT)"
   min_ansible_version: 2.4
