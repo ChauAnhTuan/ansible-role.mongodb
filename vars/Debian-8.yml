@@ -1,4 +1,5 @@
 ---
-apt_packages_name: []
+apt_packages_name:
+  - apt-transport-https
 apt_repository: 'http://repo.mongodb.org/apt/debian jessie/mongodb-org/4.0 main'
 apt_gpg_key: 'https://www.mongodb.org/static/pgp/server-4.0.asc'

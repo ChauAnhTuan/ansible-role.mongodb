@@ -3,7 +3,7 @@
   get_url:
     url: "{{ item.gpgkey }}"
     dest: "{{ item.sslcacert }}"
-  when: item.gpgkey is defined and item.sslcacert is defined
+  when: item.sslcacert is defined and item.gpgkey is defined 
   with_items: "{{ yum_repository }}"
 
 - name: Add {{ service_name }} repository

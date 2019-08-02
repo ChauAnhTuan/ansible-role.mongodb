@@ -1,8 +1,4 @@
 ---
-- name: Reload local package database.
-  apt:
-    update_cache: true
-
 - name: Ensure package idependent are installed.
   apt:
     name: "{{ apt_packages_name }}"
