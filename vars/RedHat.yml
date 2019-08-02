@@ -1,0 +1,12 @@
+---
+yum_packages_name: []
+
+yum_repository:
+  - name: MongoDB
+    baseurl: http://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/4.0/x86_64/
+    repo_gpgcheck:
+    enabled: true
+    gpgcheck: true
+    gpgkey: https://www.mongodb.org/static/pgp/server-4.0.asc
+    sslverify:
+    sslcacert:

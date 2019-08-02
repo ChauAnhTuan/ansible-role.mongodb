@@ -1,0 +1,25 @@
+---
+dependencies: []
+
+galaxy_info:
+  author: "ansible-roles"
+  description: Mysql client for Linux.
+  company: "ansible-roles"
+  license: "license (BSD, MIT)"
+  min_ansible_version: 2.4
+  platforms:
+    - name: RedHat/Centos
+      versions:
+        - 6
+        - 7
+    - name: Ubuntu
+      versions:
+        - 16.04
+        - 18.04
+    - name: Debian
+      versions:
+        - 9
+  galaxy_tags:
+    - database
+    - mysql
+    - rdbms

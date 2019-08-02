@@ -1,0 +1,34 @@
+---
+- name: Download gpg key
+  get_url:
+    url: "{{ item.gpgkey }}"
+    dest: "{{ item.sslcacert }}"
+  when: item.gpgkey is defined
+  with_items: "{{ yum_repository }}"
+
+- name: Add {{ service_name }} repository
+  yum_repository:
+    name: "{{ item.name }}"
+    description: "{{ item.name }} YUM repo"
+    baseurl: "{{ item.baseurl }}"
+    repo_gpgcheck: "{{ item.repo_gpgcheck | default(omit) }}"
+    enabled: "{{ item.enabled | default(omit) }}"
+    gpgcheck: "{{ item.gpgcheck | default(omit) }}"
+    gpgkey: "{{ item.gpgkey | default(omit) }}"
+    sslverify: "{{ item.sslverify | default(omit) }}"
+    sslcacert: "{{ item.sslcacert | default(omit) }}"
+  with_items: "{{ yum_repository }}"
+  when: yum_repository is defined
+
+- name: Ensure package idependent are installed.
+  yum:
+    name: "{{ yum_packages_name }}"
+    update_cache: true
+    state: present
+  when: yum_packages_name is defined
+
+- name: Ensure {{ service_name }} are installed.
+  yum:
+    name: "{{ packages_name }}"
+    update_cache: true
+    state: present

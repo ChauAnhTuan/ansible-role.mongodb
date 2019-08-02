@@ -1,0 +1,4 @@
+---
+apt_packages_name: []
+apt_repository: 'https://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/4.0 multiverse'
+apt_gpg_key: 'https://www.mongodb.org/static/pgp/server-4.0.asc'
