@@ -3,35 +3,3 @@ packages_name: mongodb-org
 service_name: mongod
 service_service_state: started
 service_service_enabled: true
-
-grafana_use_provisioning: false
-
-grafana_api_url: http://localhost:3000
-
-grafana_data_dir: "/var/lib/grafana"
-
-grafana_security:
-  admin_user: admin
-  admin_password: admin
-
-grafana_plugins:
-  - alexanderzobnin-zabbix-app
-
-grafana_datasources:
-  - name: "Zabbix"
-    type: "alexanderzobnin-zabbix-datasource"
-    access: "direct"
-    url: "http://zabbix-server.com"
-    basicAuth: false
-    # basicAuthUser: "admin"
-    # basicAuthPassword: "password"
-    url_username: Admin
-    url_password: zabbix
-    trends: true
-    isDefault: true
-    jsonData:
-      user: Admin
-      password: zabbix
-      tlsAuth: false
-      tlsAuthWithCACert: false
-      tlsSkipVerify: true
