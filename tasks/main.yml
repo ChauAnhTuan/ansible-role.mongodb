@@ -26,15 +26,15 @@
     enabled: "{{ service_service_enabled }}"
 
 - name: Generate a password for user "{{ mongodb_user_ac }}" of the MongoDB
-  shell: </dev/urandom tr -dc '12345!@#$%qwertQWERTasdfgASDFGzxcvbZXCVB' | head -c8; echo ""
-  when: mongo_access_control_enabled|bool
+  shell: /usr/bin/openssl rand -base64 15
+#   when: mongo_access_control_enabled|bool
   register: mongodb_password
 
 - name: MongoDB Enable Access Control
   mongodb_user:
     database: "admin"
     name: "{{ mongodb_user_ac }}"
-    password: user_password.stdout 
+    password: "{{ mongodb_password.stdout }}"
     # login_host: "{{ mongodb_bind_ip }}"
     # login_port: "{{ mongodb_port }}"
     # login_user: "{{ admin_login }}"
