@@ -37,4 +37,4 @@ MIT / BSD
 
 ## Author Information
 
-This role was created/edited in 2020 by Chau Anh Tuan, author of [Ansible for DevOps](https://www.ansiblefordevops.com/).
+This role was created/edited in 2020 by Chau Anh Tuan.
