@@ -55,9 +55,9 @@
     regexp: '^#security'
     line: "security:"
 
-- name: Ensure the default Apache port is 8080
+- name: Ensure MongoDB enable auth
   lineinfile:
-    path: /etc/httpd/conf/httpd.conf
+    path: "/etc/{{ service_name }}.conf"
     regexp: '^security'
     insertafter: '^security'
     line: 'authorization: "disabled"'
