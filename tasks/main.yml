@@ -43,6 +43,7 @@
     roles: "{{ mongodb_user_roles }}"
     state: present
   when: mongo_access_control_enabled|bool
+  changed_when: False
 
 - name: MongoDB user created
   debug: msg="Password for {{ mongodb_user_ac }} is {{ mongodb_password.stdout }}"
