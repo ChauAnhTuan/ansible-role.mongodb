@@ -25,14 +25,23 @@
     state: "{{ service_service_state }}"
     enabled: "{{ service_service_enabled }}"
 
+- name: Generate a password for user "{{ mongodb_user_ac }}" of the MongoDB
+  shell: </dev/urandom tr -dc '12345!@#$%qwertQWERTasdfgASDFGzxcvbZXCVB' | head -c8; echo ""
+  register: mongodb_password
+
 - name: MongoDB Enable Access Control
   mongodb_user:
     database: "admin"
-    name: "{{ mongodb_user }}"
-    password: "{{ lookup('password', 'credentials/' + client + '/' + tier + '/' + role + '/mysqlpassword length=15') }}"
+    name: "{{ mongodb_user_ac }}"
+    password: user_password.stdout 
     # login_host: "{{ mongodb_bind_ip }}"
     # login_port: "{{ mongodb_port }}"
     # login_user: "{{ admin_login }}"
     # login_password: "{{ admin_password }}"
     state: present
   when: mongo_access_control_enabled == "true"
+  register: mongodb_user
+
+- name:  MongoDB user created
+  debug: msg="Password for "{{ mongodb_user_ac }}" is {{ mongodb_password.stdout }}"
+  when: mongodb_user.changed

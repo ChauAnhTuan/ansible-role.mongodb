@@ -4,4 +4,4 @@ service_name: mongod
 service_service_state: started
 service_service_enabled: true
 mongo_access_control_enabled: true
-mongodb_user_ac: "mongodb_user"
+mongodb_user_ac: mongodb_user
