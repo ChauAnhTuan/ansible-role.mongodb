@@ -48,3 +48,17 @@
 - name: MongoDB user created
   debug: msg="Password for {{ mongodb_user_ac }} is {{ mongodb_password.stdout }}"
   when: mongo_access_control_enabled|bool
+
+- name: Enable security for MongoDB
+  lineinfile:
+    path: "/etc/{{ service_name }}.conf"
+    regexp: '^#security'
+    line: "security:"
+
+- name: Ensure the default Apache port is 8080
+  lineinfile:
+    path: /etc/httpd/conf/httpd.conf
+    regexp: '^security'
+    insertafter: '^security'
+    line: 'authorization: "disabled"'
+  notify: restart {{ service_name }}
