@@ -58,7 +58,6 @@
 - name: Ensure MongoDB enable auth
   lineinfile:
     path: "/etc/{{ service_name }}.conf"
-    regexp: '^security'
     insertafter: '^security'
     line: 'authorization: "disabled"'
   notify: restart {{ service_name }}
