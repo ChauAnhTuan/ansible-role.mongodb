@@ -29,6 +29,7 @@
   command: /usr/bin/openssl rand -base64 15
   when: mongo_access_control_enabled|bool
   register: mongodb_password
+  changed_when: False
 
 - name: MongoDB Enable Access Control
   mongodb_user:
