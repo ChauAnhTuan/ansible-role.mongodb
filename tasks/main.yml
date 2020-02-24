@@ -26,7 +26,7 @@
     enabled: "{{ service_service_enabled }}"
 
 - name: Generate a password for user "{{ mongodb_user_ac }}" of the MongoDB
-  shell: /usr/bin/openssl rand -base64 15
+  command: /usr/bin/openssl rand -base64 15
 #   when: mongo_access_control_enabled|bool
   register: mongodb_password
 
