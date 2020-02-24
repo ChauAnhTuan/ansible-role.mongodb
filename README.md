@@ -1,4 +1,4 @@
-# Ansible Role: EPEL Repository
+# Ansible Role: MongoDB
 
 [![Build Status](https://travis-ci.org/chauanhtuandl/ansible-role.mongodb.svg?branch=master)](https://travis-ci.org/chauanhtuandl/ansible-role.mongodb)
 
@@ -6,7 +6,7 @@ Installs the [MongoDB](https://www.mongodb.com/) for RHEL/CentOS/Debian/Ubuntu.
 
 ## Requirements
 
-This role require pymongo library.
+This role required pymongo library.
 
 ## Role Variables
 
