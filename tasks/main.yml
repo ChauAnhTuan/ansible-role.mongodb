@@ -27,7 +27,7 @@
 
 - name: Generate a password for user "{{ mongodb_user_ac }}" of the MongoDB
   command: /usr/bin/openssl rand -base64 15
-#   when: mongo_access_control_enabled|bool
+  when: mongo_access_control_enabled|bool
   register: mongodb_password
 
 - name: MongoDB Enable Access Control
@@ -44,6 +44,6 @@
   when: mongo_access_control_enabled|bool
   register: mongodb_user
 
-- name:  MongoDB user created
+- name: MongoDB user created
   debug: msg="Password for {{ mongodb_user_ac }} is {{ mongodb_password.stdout }}"
   when: mongodb_user.changed
